@@ -28,6 +28,8 @@ class YahooAPI:
         }
         req = requests.get(url, headers=CONST.API_HEADRS,params=params)
         if not(300 > req.status_code >=200):
+            # エラーの中身を確認
+            # raise Exception(f"api error: {req.text}")
             return None
         # APIの戻り値を格納
         return req.json()
